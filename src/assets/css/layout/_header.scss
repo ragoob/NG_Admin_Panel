@@ -1,0 +1,1144 @@
+// -----------------------------------------------------------------------------
+// HEADER
+// -----------------------------------------------------------------------------
+header{
+    @include whd($height: 60px);
+    background: #ffffff;
+    @include box-shadow-bottom;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+
+    // -----------------------------------------------------------------------------
+    // LOGO
+    // -----------------------------------------------------------------------------
+    .logo{
+        @include whd($width: 250px, $height: inherit);
+        float: left;
+        @include transition(0.5s, ease-in-out);
+        
+        a{
+            @include whd($height: inherit, $display: inline-block);
+
+            img{
+                @include whd($width: 220px, $height: 45px);
+                margin: 7.5px 15px;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // NAVIGATION BUTTON
+    // -----------------------------------------------------------------------------
+    .nav-menu-btn{
+        @include whd($width: auto, $height: inherit);
+        float: left;
+        padding: 0px 20px;
+        line-height: 60px;
+        cursor: pointer;
+        border-left: 0.5px solid rgba(0, 0, 0, 0.2);
+        border-right: 0.5px solid rgba(0, 0, 0, 0.2);
+        @include transition(0.5s, ease-in-out);
+
+        i{
+            font-size: 1.5rem;
+            color: $placeholder-color;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // SEARCH
+    // -----------------------------------------------------------------------------
+    .search{
+        @include whd($width: 300px, $height: inherit);
+        float: left;
+        margin-left: 20px;
+
+        form{
+            @include whd($height: inherit);
+            float: left;
+            position: relative;
+
+            input{
+                @include whd($height: 40px);
+                background: none;
+                outline: none;
+                font-size: 0.9rem;
+                border: 0.5px solid rgba(0, 0, 0, 0.2);
+                padding: 8.5px 20px 8.5px 35px;
+                font-family: $secondary-font;
+                @include border-radius(20px);
+                margin: 10px 0px;
+            }
+
+            i{
+                font-size: 1rem;
+                color: $placeholder-color;
+                position: absolute;
+                top: calc(50% - 0.7rem);
+                left: 15px;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // HEADER CONTENT
+    // -----------------------------------------------------------------------------
+    .header-content{
+        @include whd($width: auto, $height: inherit);
+        float: right;
+
+        // -----------------------------------------------------------------------------
+        // GENERAL
+        // -----------------------------------------------------------------------------
+        .email-notifications, .system-notifications,
+        .user-details, .language-switcher{
+            float: left;
+            border-left: 0.5px solid rgba(0, 0, 0, 0.2);
+            padding: 0px 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .email-notifications, .system-notifications{
+            @include whd($width: auto, $height: inherit);
+
+            .icon-notifications{
+                line-height: 60px;
+                text-align: center;
+                position: relative;
+
+                i{
+                    font-size: 1.2rem;
+                    color: $placeholder-color;
+                }
+
+                .notification-counter{
+                    @include whd($width: 16px, $height: 16px);
+                    background: $error-color;
+                    @include border-radius(50%);
+                    position: absolute;
+                    top: 10px;
+                    right: -7px;
+                    line-height: 16px;
+                    text-align: center;
+                    font-size: 0.6rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                }
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // E-MAIL NOTIFICATIONS
+        // -----------------------------------------------------------------------------
+        .email-notifications{
+            .email-notifications-dropdown{
+                @include whd($width: 350px);
+                position: absolute;
+                right: 0px;
+                top: 90px;
+                background: #ffffff;
+                @include box-shadow-all-sides;
+                @include border-radius(7px);
+                @include transition(0.1s, ease-in-out);
+                visibility: hidden;
+                opacity: 0;
+                cursor: default;
+
+                .dropdown-title{
+                    @include whd($display: inline-block);
+                    padding: 0.7rem 1rem 0.2rem;
+                    background: $primary-color;
+                    color: #ffffff;
+                    @include border-radius(7px);
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    position: relative;
+                    z-index: 2;
+
+                    .title{
+                        @include whd($width: auto);
+                        font-family: $secondary-font;
+                        font-weight: 500;
+                        font-size: 0.85rem;
+                        float: left;
+                        line-height: 20px;
+                    }
+
+                    .badge{
+                        @include whd($width: auto);
+                        font-family: $secondary-font;
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                        float: right;
+                        background: #ffffff;
+                        color: $primary-color;
+                        line-height: 12px;
+                    }
+                }
+
+                .email-messages{
+                    @include whd($height: 360px);
+                    overflow: auto;
+
+                    &::-webkit-scrollbar {
+                        width: 2px;
+                    }
+                    
+                    &::-webkit-scrollbar-track {
+                        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -ms-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -o-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        @include border-radius(7px);
+                    }
+                    
+                    &::-webkit-scrollbar-thumb {
+                        background: $primary-color; 
+                        @include border-radius(7px);
+                    }
+                    
+                    &::-webkit-scrollbar-thumb:hover {
+                        background: $primary-color; 
+                    }
+
+                    .email-message{
+                        @include whd;
+                        padding: 1rem;
+                        text-decoration: none;
+                        border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+                        position: relative;
+                        background: #ffffff;
+                        @include transition(0.3s, ease-in-out);
+
+                        .name-date{
+                            @include whd($display: inline-block);
+
+                            .name{
+                                @include whd($width: auto);
+                                font-family: $primary-font;
+                                font-size: 1rem;
+                                color: $primary-color;
+                                font-weight: 600;
+                                float: left;
+                                line-height: 20px;
+                                text-align: left;
+                            }
+
+                            .date{
+                                @include whd($width: auto);
+                                font-family: $secondary-font;
+                                font-size: 0.8rem;
+                                color: $placeholder-color;
+                                font-weight: 300;
+                                float: right;
+                                line-height: 20px;
+                                text-align: left;
+                            }
+                        }
+
+                        .subject{
+                            @include whd;
+                            font-family: $secondary-font;
+                            font-size: 1rem;
+                            color: $helper-color;
+                            font-weight: 500;
+                            text-align: left;
+                        }
+
+                        .truncated-message{
+                            @include whd;
+                            font-family: $primary-font;
+                            font-size: 0.8rem;
+                            color: $text-color;
+                            font-weight: 300;
+                            text-align: left;
+                        }
+
+                        &:last-child{
+                            border-bottom: 0px;
+                        }
+
+                        &::before{
+                            content: '';
+                            @include whd($height: 100%);
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            background: transparent;
+                            @include transition(0.3s, ease-in-out);
+                        }
+
+                        &:hover{
+                            background: $separator-color;
+
+                            &::before{
+                                background: rgba(218, 218, 218, 0.001);
+                            }
+                        }
+                    }
+
+                    .email-message.unseen{
+                        background: $separator-color;
+                    }
+                }
+
+                .see-all-notifications{
+                    @include whd;
+                    padding: 0.6rem 1rem;
+                    background: $primary-color;
+                    @include border-radius(7px);
+                    border-top-left-radius: 0px;
+                    border-top-right-radius: 0px;
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-family: $secondary-font;
+                    text-transform: uppercase;
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                    text-align: center;
+                    line-height: 1.5rem;
+                }
+
+                &::before{
+                    content: '';
+                    @include whd($width: 15px, $height: 15px);
+                    background: $primary-color;
+                    position: absolute;
+                    top: -5px;
+                    right: 23px;
+                    @include border-radius(3px);
+                    @include rotate(45deg);
+                    z-index: 1;
+                    @include box-shadow-all-sides;
+                }
+            }
+
+            .email-notifications-dropdown.show{
+                visibility: visible;
+                opacity: 1;
+                @include translate(0px, -15px);
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // SYSTEM NOTIFICATIONS
+        // -----------------------------------------------------------------------------
+        .system-notifications{
+            .system-notifications-dropdown{
+                @include whd($width: 350px);
+                position: absolute;
+                right: 0px;
+                top: 90px;
+                background: #ffffff;
+                @include box-shadow-all-sides;
+                @include border-radius(7px);
+                @include transition(0.1s, ease-in-out);
+                cursor: default;
+                visibility: hidden;
+                opacity: 0;
+
+                .dropdown-title{
+                    @include whd($display: inline-block);
+                    padding: 0.7rem 1rem 0.2rem;
+                    background: $primary-color;
+                    color: #ffffff;
+                    @include border-radius(7px);
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    position: relative;
+                    z-index: 2;
+
+                    .title{
+                        @include whd($width: auto);
+                        font-family: $secondary-font;
+                        font-weight: 500;
+                        font-size: 0.85rem;
+                        float: left;
+                        line-height: 20px;
+                    }
+
+                    .badge{
+                        @include whd($width: auto);
+                        font-family: $secondary-font;
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                        float: right;
+                        background: #ffffff;
+                        color: $primary-color;
+                        line-height: 12px;
+                    }
+                }
+
+                .system-notification-messages{
+                    @include whd($height: 360px);
+                    overflow: auto;
+
+                    &::-webkit-scrollbar {
+                        width: 2px;
+                    }
+                    
+                    &::-webkit-scrollbar-track {
+                        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -ms-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        -o-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                        @include border-radius(7px);
+                    }
+                    
+                    &::-webkit-scrollbar-thumb {
+                        background: $primary-color; 
+                        @include border-radius(7px);
+                    }
+                    
+                    &::-webkit-scrollbar-thumb:hover {
+                        background: $primary-color; 
+                    }
+
+                    .system-notification-message{
+                        @include whd($display: inline-block);
+                        padding: 1rem 1rem 0.6rem 1rem;
+                        text-decoration: none;
+                        border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+                        position: relative;
+                        background: #ffffff;
+                        @include transition(0.3s, ease-in-out);
+
+                        .user-avatar{
+                            @include whd($width: 40px);
+                            float: left;
+
+                            img{
+                                @include whd($width: 40px, $height: 40px);
+                            }
+                        }
+
+                        .user-action{
+                            @include whd($width: calc(100% - 60px));
+                            float: right;
+
+                            .user-name{
+                                @include whd;
+                                font-family: $primary-font;
+                                font-size: 1rem;
+                                color: $primary-color;
+                                font-weight: 600;
+                                line-height: 20px;
+                                text-align: left;
+                            }
+
+                            .action-taken{
+                                @include whd;
+                                font-family: $secondary-font;
+                                font-size: 0.9rem;
+                                color: $helper-color;
+                                font-weight: 500;
+                                text-align: left;
+                            }
+
+                            .date{
+                                @include whd;
+                                font-family: $secondary-font;
+                                font-size: 0.8rem;
+                                color: $placeholder-color;
+                                font-weight: 300;
+                                line-height: 20px;
+                                text-align: left;
+                            }
+                        }
+
+                        &:last-child{
+                            border-bottom: 0px;
+                        }
+
+                        &::before{
+                            content: '';
+                            @include whd($height: 100%);
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            background: transparent;
+                            @include transition(0.3s, ease-in-out);
+                        }
+
+                        &:hover{
+                            background: $separator-color;
+
+                            &::before{
+                                background: rgba(218, 218, 218, 0.001);
+                            }
+                        }
+                    }
+
+                    .system-notification-message.unseen{
+                        background: $separator-color;
+                    }
+                }
+
+                .see-all-notifications{
+                    @include whd;
+                    padding: 0.6rem 1rem;
+                    background: $primary-color;
+                    @include border-radius(7px);
+                    border-top-left-radius: 0px;
+                    border-top-right-radius: 0px;
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-family: $secondary-font;
+                    text-transform: uppercase;
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                    text-align: center;
+                    line-height: 1.5rem;
+                }
+
+                &::before{
+                    content: '';
+                    @include whd($width: 15px, $height: 15px);
+                    background: $primary-color;
+                    position: absolute;
+                    top: -5px;
+                    right: 23px;
+                    @include border-radius(3px);
+                    @include rotate(45deg);
+                    z-index: 1;
+                    @include box-shadow-all-sides;
+                }
+            }
+
+            .system-notifications-dropdown.show{
+                visibility: visible;
+                opacity: 1;
+                @include translate(0px, -15px);
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // USER DETAILS
+        // -----------------------------------------------------------------------------
+        .user-details{
+            @include whd($width: auto, $height: inherit);
+            cursor: pointer;
+
+            .image-name{
+                line-height: 60px;
+
+                .user-avatar{
+                    @include whd($width: 35px, $height: 35px);
+                    float: left;
+                    @include border-radius(50%);
+                    margin: 12.5px 0px;
+                }
+
+                .user-name{
+                    margin-left: 10px;
+                    color: $placeholder-color;
+                    font-size: 0.9rem;
+                    line-height: inherit;
+                }
+            }
+
+            .user-details-dropdown{
+                @include whd($width: 260px);
+                position: absolute;
+                right: 0px;
+                top: 90px;
+                background: #ffffff;
+                padding: 1.5rem 1rem 1rem 1rem;
+                @include box-shadow-all-sides;
+                @include border-radius(7px);
+                visibility: hidden;
+                opacity: 0;
+                @include transition(0.1s, ease-in-out);
+                cursor: default;
+
+                .user-avatar{
+                    @include whd($width: 80px, $height: 80px);
+                    margin: 0px auto 15px auto;
+                }
+
+                .user-name{
+                    @include whd;
+                    text-align: center;
+                    font-size: 1rem;
+                    color: $primary-color;
+                    font-family: $secondary-font;
+                    font-weight: 700;
+                }
+
+                .email-address{
+                    @include whd;
+                    text-align: center;
+                    font-size: 0.8rem;
+                    color: $secondary-color;
+                }
+
+                .line-separator{
+                    @include whd($width: 70%, $height: 1px);
+                    background: $medium-color;
+                    margin: 1rem auto 0.7rem auto;
+                }
+
+                .user-options{
+                    @include whd;
+                    padding: 0px;
+                    margin: 0px;
+
+                    li{
+                        @include whd;
+                        list-style-type: none;
+                        padding: 0.5rem;
+                        @include border-radius(5px);
+                        background: transparent;
+                        @include transition(0.1s, ease-in-out);
+
+                        a{
+                            @include whd($height: 20px);
+                            font-family: $secondary-font;
+                            font-size: 0.95rem;
+                            color: $placeholder-color;
+                            text-decoration: none;
+                            line-height: 0px;
+                            text-align: left;
+                            @include transition(0.1s, ease-in-out);
+
+                            i{
+                                @include whd($width: 15px, $height: 15px, $display: inline-block);
+                                font-size: 1.3rem;
+                                margin-right: 12px;
+                                text-align: center;
+                                position: relative;
+                                top: 3px;
+                                @include transition(0.1s, ease-in-out);
+                            }
+                        }
+
+                        &:hover{
+                            background: $light-color;
+
+                            a{
+                                color: $primary-color;
+                            }                            
+                        }
+                    }
+                }
+
+                &::before{
+                    content: '';
+                    @include whd($width: 15px, $height: 15px);
+                    background: #ffffff;
+                    position: absolute;
+                    top: -5px;
+                    right: 65px;
+                    @include border-radius(3px);
+                    @include rotate(45deg);
+                    z-index: 1;
+                    @include box-shadow-all-sides;
+                }
+            }
+
+            .user-details-dropdown.show{
+                visibility: visible;
+                opacity: 1;
+                @include translate(0px, -15px);
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // LANGUAGE SWITCHER
+        // -----------------------------------------------------------------------------
+        .language-switcher{
+            @include whd($width: auto, $height: inherit);
+
+            .current-lang{
+                @include whd($width: auto, $height: 20px);
+                @include border-radius(5px);
+                margin: 20px 0px;
+            }
+
+            .lang-select-options{
+                @include whd($width: 200px);
+                position: absolute;
+                right: 5px;
+                top: 90px;
+                background: #ffffff;
+                padding: 0.5rem;
+                @include box-shadow-all-sides;
+                @include border-radius(7px);
+                visibility: hidden;
+                opacity: 0;
+                @include transition(0.1s, ease-in-out);
+
+                .lang-option{
+                    @include whd;
+                    line-height: 15px;
+                    font-family: $secondary-font;
+                    font-size: 0.95rem;
+                    padding: 0.5rem;
+                    @include border-radius(5px);
+                    background: transparent;
+                    color: $placeholder-color;
+                    position: relative;
+                    z-index: 2;
+                    text-decoration: none;
+                    line-height: 16px;
+
+                    img{
+                        @include whd($width: auto, $height: 15px);
+                        float: left;
+                        margin-right: 15px;
+                        @include border-radius(5px);
+                    }
+
+                    &:hover{
+                        @include transition(0.3s, ease-in-out);
+                        background: $light-color;
+                        color: $primary-color;
+                    }
+                }
+
+                &::before{
+                    content: '';
+                    @include whd($width: 15px, $height: 15px);
+                    background: #ffffff;
+                    position: absolute;
+                    top: -5px;
+                    right: 25px;
+                    @include border-radius(3px);
+                    @include rotate(45deg);
+                    z-index: 1;
+                    @include box-shadow-all-sides;
+                }
+            }
+
+            .lang-select-options.show{
+                visibility: visible;
+                opacity: 1;
+                @include translate(0px, -15px);
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// WHEN CLOSE/OPEN NAVMENU THROUGH MENU CLICK
+// -----------------------------------------------------------------------------
+.hide-nav-menu{
+    header .logo{
+        width: 0px;
+        @include translate(-252px, 0px);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// HEADER (RTL)
+// -----------------------------------------------------------------------------
+.rtl header{
+
+    // -----------------------------------------------------------------------------
+    // LOGO
+    // -----------------------------------------------------------------------------
+    .logo{
+        float: right;
+    }
+
+    // -----------------------------------------------------------------------------
+    // NAVIGATION BUTTON
+    // -----------------------------------------------------------------------------
+    .nav-menu-btn{
+        float: right;
+    }
+
+    // -----------------------------------------------------------------------------
+    // SEARCH
+    // -----------------------------------------------------------------------------
+    .search{
+        float: right;
+        margin-right: 20px;
+        margin-left: 0px;
+
+        form{
+            float: right;
+
+            input{
+                padding: 8.5px 35px 8.5px 20px;
+            }
+
+            i{
+                right: 15px;
+                left: auto;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // HEADER CONTENT
+    // -----------------------------------------------------------------------------
+    .header-content{
+        float: left;
+
+        // -----------------------------------------------------------------------------
+        // GENERAL
+        // -----------------------------------------------------------------------------
+        .email-notifications, .system-notifications,
+        .user-details, .language-switcher{
+            float: right;
+            border-right: 0.5px solid rgba(0, 0, 0, 0.2);
+            border-left: 0px;
+        }
+
+        .email-notifications, .system-notifications{
+            .icon-notifications{
+                .notification-counter{
+                    left: -7px;
+                    right: auto;
+                }
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // E-MAIL NOTIFICATIONS
+        // -----------------------------------------------------------------------------
+        .email-notifications{
+            .email-notifications-dropdown{
+                left: 0px;
+                right: auto;
+
+                .dropdown-title{
+                    .title{
+                        float: right;
+                    }
+
+                    .badge{
+                        float: left;
+                    }
+                }
+
+                .email-messages{
+                    .email-message{
+                        .name-date{
+                            .name{
+                                float: right;
+                                text-align: right;
+                            }
+
+                            .date{
+                                float: left;
+                                text-align: right;
+                            }
+                        }
+
+                        .subject{
+                            text-align: right;
+                        }
+
+                        .truncated-message{
+                            text-align: right;
+                        }
+                    }
+                }
+
+                &::before{
+                    content: '';
+                    left: 23px;
+                    right: auto;
+                }
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // SYSTEM NOTIFICATIONS
+        // -----------------------------------------------------------------------------
+        .system-notifications{
+            .system-notifications-dropdown{
+                left: 0px;
+                right: auto;
+
+                .dropdown-title{
+                    .title{
+                        float: right;
+                    }
+
+                    .badge{
+                        float: left;
+                    }
+                }
+
+                .system-notification-messages{
+                    .system-notification-message{
+                        .user-avatar{
+                            float: right;
+                        }
+
+                        .user-action{
+                            float: left;
+
+                            .user-name{
+                                text-align: right;
+                            }
+
+                            .action-taken{
+                                text-align: right;
+                            }
+
+                            .date{
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+
+                &::before{
+                    content: '';
+                    left: 23px;
+                    right: auto;
+                }
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // USER DETAILS
+        // -----------------------------------------------------------------------------
+        .user-details{
+            .image-name{
+                .user-avatar{
+                    float: right;
+                }
+
+                .user-name{
+                    margin-right: 10px;
+                    margin-left: 0px;
+                }
+            }
+        }
+
+        .user-details-dropdown{
+            left: 0px;
+            right: auto;
+
+            .user-options{
+                li{
+                    a{
+                        text-align: right;
+
+                        i{
+                            margin-left: 12px;
+                            margin-right: 0px;
+                        }
+                    }
+                }
+            }
+
+            &::before{
+                content: '';
+                left: 65px;
+                right: auto;
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // LANGUAGE SWITCHER
+        // -----------------------------------------------------------------------------
+        .language-switcher{
+            .lang-select-options{
+                left: 5px;
+                right: auto;
+
+                .lang-option{
+                    text-align: right;
+
+                    img{
+                        float: right;
+                        margin-left: 15px;
+                        margin-right: 0px;
+                    }
+                }
+
+                &::before{
+                    left: 25px;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// WHEN CLOSE/OPEN NAVMENU THROUGH MENU CLICK
+// -----------------------------------------------------------------------------
+.rtl{
+    .hide-nav-menu{
+        header .logo{
+            width: 0px;
+            @include translate(252px, 0px);
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// RESPONSIVE
+// -----------------------------------------------------------------------------
+@media only screen and (max-width: 1024px){
+    header .search{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    header .logo, .rtl header .logo{
+        width: 0px;
+    }
+
+    header .logo{
+        @include translate(-252px, 0px);
+    }
+
+    .rtl header .logo{
+        @include translate(252px, 0px);
+    }
+}
+
+@media only screen and (max-width: 800px){
+    header .header-content .email-notifications, 
+    header .header-content .system-notifications, 
+    header .header-content .user-details, 
+    header .header-content .language-switcher{
+        border-left: none;
+        padding: 0px 15px;
+    }
+
+    .rtl header .header-content .email-notifications, 
+    .rtl header .header-content .system-notifications, 
+    .rtl header .header-content .user-details, 
+    .rtl header .header-content .language-switcher{
+        border-right: none;
+    }
+
+    header .header-content .language-switcher .lang-select-options::before{
+        right: 20px;
+        left: auto;
+    }
+
+    .rtl header .header-content .language-switcher .lang-select-options::before{
+        left: 20px;
+        right: auto;
+    }
+
+    header .header-content .user-details .user-details-dropdown::before{
+        right: 60px;
+        left: auto;
+    }
+
+    .rtl header .header-content .user-details .user-details-dropdown::before{
+        left: 60px;
+        right: auto;
+    }
+
+    header .header-content .email-notifications .email-notifications-dropdown::before,
+    header .header-content .system-notifications .system-notifications-dropdown::before{
+        right: 17px;
+        left: auto;
+    }
+
+    .rtl header .header-content .email-notifications .email-notifications-dropdown::before,
+    .rtl header .header-content .system-notifications .system-notifications-dropdown::before{
+        left: 17px;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    header .header-content .user-details .image-name .user-name{
+        display: none;
+    }
+
+    header .header-content .user-details .user-details-dropdown::before{
+        right: 25px;
+        left: auto;
+    }
+
+    .rtl header .header-content .user-details .user-details-dropdown::before{
+        left: 25px;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    header .header-content .email-notifications .email-notifications-dropdown{
+        right: -165px;
+        left: auto;
+    }
+
+    header .header-content .email-notifications .email-notifications-dropdown::before{
+        right: 182px;
+        left: auto;
+    }
+
+    .rtl header .header-content .email-notifications .email-notifications-dropdown{
+        left: -165px;
+        right: auto;
+    }
+
+    .rtl header .header-content .email-notifications .email-notifications-dropdown::before{
+        left: 182px;
+        right: auto;
+    }
+
+    header .header-content .system-notifications .system-notifications-dropdown{
+        right: -113px;
+        left: auto;
+    }
+
+    header .header-content .system-notifications .system-notifications-dropdown::before{
+        right: 130px;
+        left: auto;
+    }
+
+    .rtl header .header-content .system-notifications .system-notifications-dropdown{
+        left: -113px;
+        right: auto;
+    }
+
+    .rtl header .header-content .system-notifications .system-notifications-dropdown::before{
+        left: 130px;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    header .header-content .user-details .user-details-dropdown{
+        right: -50px;
+        left: auto;
+    }
+
+    header .header-content .user-details .user-details-dropdown::before{
+        right: 75px;
+        left: auto;
+    }
+
+    .rtl header .header-content .user-details .user-details-dropdown{
+        left: -50px;
+        right: auto;
+    }
+
+    .rtl header .header-content .user-details .user-details-dropdown::before{
+        left: 75px;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 380px){
+    header .header-content .email-notifications .email-notifications-dropdown,
+    .rtl header .header-content .system-notifications .system-notifications-dropdown{
+        width: 300px;
+    }
+}

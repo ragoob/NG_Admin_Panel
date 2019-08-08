@@ -1,0 +1,290 @@
+// -----------------------------------------------------------------------------
+// GENERAL
+// -----------------------------------------------------------------------------
+.form-group{
+    .uploaded-img {
+        @include whd($width: auto, $height: 100px);
+        clear: both;
+        margin-bottom: 20px;
+        background: img('transparent-img-upload-default.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        line-height: 100px;
+        padding: 15px;
+    }
+    
+    .custom-file {
+        @include whd($height: 2.5rem, $display: inline-block);
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+    
+    .custom-file-input {
+        @include whd($height: 2.5rem, $display: inline-block);
+        cursor: pointer;
+        min-width: 14rem;
+        max-width: 100%;
+        margin: 0;
+        opacity: 0;
+    }
+    
+    .custom-file-control {
+        @include whd($height: 2.5rem);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 5;
+        padding: 0.5rem 1rem;
+        line-height: 1.5;
+        color: $text-color;
+        pointer-events: none;
+        user-select: none;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        @include border-radius(3px);
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .custom-file-control::before {
+        content: "Browse";
+        @include whd($width: auto, $height: 2.5rem);
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        z-index: 6;
+        padding: 0.5rem 1rem;
+        line-height: 1.5;
+        background-color: $primary-color;
+        color: #fff;
+        @include border-radius(0 3px 3px 0);
+        cursor: pointer;
+    }
+
+    .form-check{
+        @include whd($display: inline-block);
+    }
+
+    .form-check input[type=checkbox]{
+        @include whd($width: 45px, $height: 20px, $display: inline-block);
+        position: relative;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #c7c7c7;
+        @include border-radius(10px);
+        line-height: 20px;
+        margin-right: 10px;
+
+        &::before{
+            content: '';
+            @include whd($height: 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f1f1f1;
+            @include border-radius(10px);
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background: #c5c5c5;
+            @include border-radius(8px);
+            @include transition(0.3s, ease-in-out);
+        }
+
+        &:checked::after{
+            @include translate(100%, 0px);
+            background: $primary-color;
+        }
+
+        & ~ .form-check-label{
+            @include whd($width: calc(100% - 40px));
+            float: right;
+            line-height: 20px;
+            position: relative;
+            top: 4px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        &:disabled{
+            opacity: 0.5;
+
+            & ~ .form-check-label{
+                color: #a8a8a8
+            }
+        }
+    }
+
+    .form-check input[type=radio]{
+        @include whd($width: 20px, $height: 20px);
+        float: left;
+        @include appearance(none);
+        position: relative;
+        outline: none;
+        line-height: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+
+        &::before{
+            content: '';
+            @include whd($width: 20px, $height: 20px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid $primary-color;
+            @include border-radius(50%);
+        }
+
+        &::after{
+            content: '';
+            @include whd($width: 14px, $height: 14px);
+            position: absolute;
+            background: $primary-color;
+            @include border-radius(50%);
+            top: 3px;
+            left: 3px;
+            @include scale(0);
+            @include transition(0.3s, ease-in-out);
+            opacity: 0.5;
+        }
+
+        &:hover::after{
+            @include scale(0.5);
+        }
+
+        &:checked::after{
+            @include scale(1);
+            opacity: 1
+        }
+
+        & ~ .form-check-label {
+            @include whd($width: calc(100% - 12px));
+            float: right;
+            line-height: 20px;
+            position: relative;
+            top: 4.5px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        &:disabled{
+            opacity: 0.5;
+
+            & ~ .form-check-label {
+                color: #a8a8a8
+            }
+        }
+    }
+
+    .alert.alert-danger{
+        margin-top: 15px;
+        margin-bottom: 0px;
+        text-align: left;
+    }
+}
+
+.form-control{
+    height: calc(1.8em + .75rem + 2px);
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// FORMS (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .form-group{
+        text-align: right;
+
+        .custom-file-control::before {
+            content: "اختر ملف";
+            right: auto;
+            left: -1px;
+            cursor: pointer;
+        }
+
+        .form-check input[type=checkbox]{
+            margin-left: 10px;
+            margin-right: 0px;
+    
+            &::after{
+                right: 0;
+                left: auto;
+            }
+    
+            &:checked::after {
+                @include translate(-100%, 0px);
+            }
+    
+            & ~ .form-check-label {
+                @include whd($width: calc(100% - 60px));
+                float: left;
+                text-align: right;
+            }
+        }
+    
+        .form-check input[type=radio]{
+            margin-left: 10px;
+            margin-right: 0px;
+            float: right;
+    
+            & ~ .form-check-label{
+                @include whd($width: calc(100% - 32px));
+                float: left;
+                text-align: right;
+            }
+        }
+
+        .alert.alert-danger{
+            text-align: right;
+        }
+    }
+
+    .input-group > .custom-select:not(:first-child), 
+    .input-group > .form-control:not(:first-child){
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 0rem;
+    }
+
+    .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), 
+    .input-group > .input-group-append:last-child > .input-group-text:not(:last-child), 
+    .input-group > .input-group-append:not(:last-child) > .btn, 
+    .input-group > .input-group-append:not(:last-child) > .input-group-text, 
+    .input-group > .input-group-prepend > .btn, 
+    .input-group > .input-group-prepend >.input-group-text{
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 0rem;
+    }
+
+    .input-group-prepend{
+        margin-left: -1px;
+        margin-right: 0px;
+    }
+} 

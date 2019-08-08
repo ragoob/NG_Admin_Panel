@@ -1,0 +1,20 @@
+<nav>
+    <span class="group-title">Navigation Menu</span>
+    <ul class="nav-menu">
+        <li class="menu-item" (click)="expand($event)" [ngClass]="{'with-sub': item.submenu && !item.page,'active-page active' : isMenuItemIsActive(item)}" *ngFor="let item of menuAsideService.menuList$ | async">
+            <a [routerLink]="item.page"><i [ngClass]="item.icon">
+
+            </i><span [translate]="item.translate">
+               {{item.title}}
+
+            </span>
+        </a>
+
+            <ul *ngIf="item.submenu" class="sub-menu">
+                <li [ngClass]="{'active': isMenuItemIsActive(submenu)}" class="sub-menu-item" *ngFor="let submenu of item.submenu"><a [routerLink]="submenu.page"><span [translate]="submenu.translate">{{submenu.title}}</span></a></li>
+                
+            </ul>
+        
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,13 @@
+<section class="breadcrumb" [hidden]="miniHeaderService.disabled$ | async">
+        <a   [routerLink]="[ '/']">{{'MENU.DASHBOARD' | translate}}</a>
+      
+        <ng-container *ngFor="let item of miniHeaderService.breadcrumbs$ | async">
+              
+                        <a  [routerLink]="item.page"  [ngClass]="{'active': currentRouteUrl == item.page}"   [queryParams]="item.queryParams" >
+                                        {{item.translate | translate}}
+                                        
+                                    </a>
+            </ng-container>
+    
+  
+</section>

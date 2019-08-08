@@ -1,0 +1,372 @@
+// -----------------------------------------------------------------------------
+// BUTTONS
+// -----------------------------------------------------------------------------
+a.btn, button.btn, a.btn:not([href]):not([tabindex]){
+    @include whd($width: auto);
+    float: left;
+    padding: 0.5rem 1.5rem;
+    background: $primary-color;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    line-height: 28px;
+    margin-right: 15px;
+    @include border-radius(5px);
+    @include transition(0.3s, ease-in-out);
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+
+    i{
+        float: left;
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-right: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    i.fa{
+        line-height: 28px;
+    }
+
+    span{
+        @include whd($width: auto);
+        float: right;
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    &:focus, &:active{
+        outline: none;
+        box-shadow: none;
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        @include whd($width: 100%, $height: 100%);
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        opacity: 0;
+        @include border-radius(5px);
+        @include transition(0.3s, ease-in-out);
+    }
+
+    &:hover{
+        color: #ffffff;
+        text-decoration: none;
+        outline: none;
+
+        i{
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        &::before{
+            opacity: 1;
+        }
+    }
+
+    &:last-child{
+        margin-right: 0px;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// BUTTONS (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    a.btn, button.btn, a.btn:not([href]):not([tabindex]){
+        float: right;
+        margin-left: 15px;
+        margin-right: 0px;
+        padding: 0.4rem 1.5rem;
+
+        i{
+            float: right;
+            margin-left: 10px;
+            margin-right: 0px;
+            font-size: 1.1rem;
+        }
+
+        span{
+            float: left;
+            font-size: 0.9rem;
+        }
+
+        &:last-child{
+            margin-left: 0px;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// BUTTONS (COLORS)
+// -----------------------------------------------------------------------------
+a.btn:disabled, button.btn:disabled, 
+a.btn.disabled, button.btn.disabled{
+    cursor: not-allowed;
+}
+
+a.btn.btn-save, button.btn.btn-save{
+    background: #2ab966;
+}
+
+a.btn.btn-edit, button.btn.btn-edit{
+    background: #6c5ce7;
+}
+
+a.btn.btn-reset, button.btn.btn-reset{
+    background: #8e9296;
+}
+
+a.btn.btn-back, button.btn.btn-back{
+    background: #3498db;
+}
+
+a.btn.btn-search, button.btn.btn-search{
+    background: #a55eea;
+}
+
+a.btn.btn-print, button.btn.btn-print{
+    background: #be2edd;
+}
+
+a.btn.btn-import, button.btn.btn-import{
+    background: #e6bc25;
+}
+
+a.btn.btn-add, button.btn.btn-add{
+    background: #1abc9c;
+}
+
+a.btn.btn-export, button.btn.btn-export{
+    background: #f0932b;
+}
+
+a.btn.btn-archive, button.btn.btn-archive{
+    background: #53ace0;
+}
+
+a.btn.btn-unarchive, button.btn.btn-unarchive{
+    background: #3dc1d3;
+}
+
+a.btn.btn-delete, button.btn.btn-delete{
+    background: #c44569;
+}
+
+a.btn.btn-view, button.btn.btn-view{
+    background: #0984e3;
+}
+
+a.btn.btn-download, button.btn.btn-download{
+    background: #3498db;
+}
+
+a.btn.btn-close, button.btn.btn-close{
+    background: #e74c3c;
+}
+
+a.btn.btn-create, button.btn.btn-create{
+    background: #16a085;
+}
+
+// -----------------------------------------------------------------------------
+// BUTTONS (HELPER CLASSES)
+// -----------------------------------------------------------------------------
+.with-only-icons a.btn i, 
+.with-only-icons button.btn i, 
+.with-only-icons a.btn:not([href]):not([tabindex]) i,
+.rtl .with-only-icons a.btn i, 
+.rtl .with-only-icons button.btn i, 
+.rtl .with-only-icons a.btn:not([href]):not([tabindex]) i{
+    margin: 0px;
+    float: none;
+}
+
+.with-only-icons a.btn, 
+.with-only-icons button.btn, 
+.with-only-icons a.btn:not([href]):not([tabindex]),
+.rtl .with-only-icons a.btn, 
+.rtl .with-only-icons button.btn, 
+.rtl .with-only-icons a.btn:not([href]):not([tabindex]){
+    @include whd($width: 45px, $height: 45px);
+    text-align: center;
+    padding: 0.4rem 0rem;
+}
+
+.with-only-icons a.btn, 
+.with-only-icons button.btn, 
+.with-only-icons a.btn:not([href]):not([tabindex]){
+    &::after{
+        content: attr(action-title);
+        @include whd($width: 90px);
+        position: absolute;
+        left: calc(50% - 45px);
+        top: -50px;
+        z-index: 5;
+        background: #ffffff;
+        font-family: $secondary-font;
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: $text-color;
+        padding: 0.3rem 1rem;
+        white-space: nowrap;
+        @include box-shadow-all-sides;
+        @include border-radius(10px);
+        opacity: 0;
+        visibility: hidden;
+        @include transition(0.3s, ease-in-out);
+    }
+
+    &:hover{
+        &::after{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.as-only-icons a.btn i, 
+.as-only-icons button.btn i, 
+.as-only-icons a.btn:not([href]):not([tabindex]) i,
+.rtl .as-only-icons a.btn i, 
+.rtl .as-only-icons button.btn i, 
+.rtl .as-only-icons a.btn:not([href]):not([tabindex]) i{
+    margin: 0px;
+    float: none;
+    font-size: 1.6rem;
+}
+
+.as-only-icons a.btn, 
+.as-only-icons button.btn, 
+.as-only-icons a.btn:not([href]):not([tabindex]),
+.rtl .as-only-icons a.btn, 
+.rtl .as-only-icons button.btn, 
+.rtl .as-only-icons a.btn:not([href]):not([tabindex]){
+    background: transparent;
+
+    &:hover{
+        background: transparent;
+    }
+}
+
+.as-only-icons a.btn, 
+.as-only-icons button.btn, 
+.as-only-icons a.btn:not([href]):not([tabindex]),
+.rtl .as-only-icons a.btn, 
+.rtl .as-only-icons button.btn, 
+.rtl .as-only-icons a.btn:not([href]):not([tabindex]){
+    @include whd($width: auto, $height: 45px);
+    text-align: center;
+    padding: 0rem;
+}
+
+.as-only-icons a.btn, 
+.as-only-icons button.btn, 
+.as-only-icons a.btn:not([href]):not([tabindex]){
+    &::before{
+        display: none;    
+    }
+
+    &::after{
+        content: attr(action-title);
+        @include whd($width: 90px);
+        position: absolute;
+        left: calc(50% - 45px);
+        top: -37px;
+        z-index: 5;
+        background: #ffffff;
+        font-family: $secondary-font;
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: $text-color;
+        padding: 0.3rem 1rem;
+        white-space: nowrap;
+        @include box-shadow-all-sides;
+        @include border-radius(10px);
+        opacity: 0;
+        visibility: hidden;
+        @include transition(0.3s, ease-in-out);
+    }
+
+    &:hover{
+        &::after{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.as-only-icons{
+    a.btn.btn-save i, button.btn.btn-save i{
+        color: #2ab966;
+    }
+    
+    a.btn.btn-edit i, button.btn.btn-edit i{
+        color: #6c5ce7;
+    }
+    
+    a.btn.btn-reset i, button.btn.btn-reset i{
+        color: #8e9296;
+    }
+    
+    a.btn.btn-back i, button.btn.btn-back i{
+        color: #3498db;
+    }
+    
+    a.btn.btn-search i, button.btn.btn-search i{
+        color: #a55eea;
+    }
+    
+    a.btn.btn-print i, button.btn.btn-print i{
+        color: #be2edd;
+    }
+    
+    a.btn.btn-import i, button.btn.btn-import i{
+        color: #e6bc25;
+    }
+    
+    a.btn.btn-add i, button.btn.btn-add i{
+        color: #1abc9c;
+    }
+    
+    a.btn.btn-export i, button.btn.btn-export i{
+        color: #f0932b;
+    }
+    
+    a.btn.btn-archive i, button.btn.btn-archive i{
+        color: #53ace0;
+    }
+    
+    a.btn.btn-unarchive i, button.btn.btn-unarchive i{
+        color: #3dc1d3;
+    }
+    
+    a.btn.btn-delete i, button.btn.btn-delete i{
+        color: #c44569;
+    }
+    
+    a.btn.btn-view i, button.btn.btn-view i{
+        color: #0984e3;
+    }
+    
+    a.btn.btn-download i, button.btn.btn-download i{
+        color: #3498db;
+    }
+    
+    a.btn.btn-close i, button.btn.btn-close i{
+        color: #e74c3c;
+    }
+    
+    a.btn.btn-create i, button.btn.btn-create i{
+        color: #16a085;
+    }
+}

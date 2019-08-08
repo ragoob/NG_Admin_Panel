@@ -1,0 +1,13 @@
+<!-- splash screen -->
+<div class="page-preloader" *ngIf="Loading">
+  <div class="center-horizontally">
+      <div class="center-vertically">
+          <img [src]="'../assets/img/logo-en.png'" alt="Techno Ways Logo" />
+          <div class="sk-double-bounce">
+              <div class="sk-child sk-double-bounce1"></div>
+              <div class="sk-child sk-double-bounce2"></div>
+          </div>
+      </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

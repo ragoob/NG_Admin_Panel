@@ -1,0 +1,61 @@
+// -----------------------------------------------------------------------------
+// BREADCRUMB
+// -----------------------------------------------------------------------------
+.breadcrumb{
+    @include whd;
+    padding: 1rem 1.2rem;
+    text-align: left;
+    background: rgba(0,0,0,0.02);
+    @include border-radius(0px);
+    margin-bottom: 0px;
+
+    a{
+        @include whd($width: auto, $display: inline-block);
+        text-decoration: none;
+        font-family: $primary-font;
+        font-size: 0.8rem;
+        color: $placeholder-color;
+        @include transition(0.3s, ease-in-out);
+
+        &::before{
+            content: '/';
+            padding-left: 7px;
+            padding-right: 10px;
+        }
+
+        &:first-child{
+            &::before{
+                display: none;
+            }
+        }
+
+        &:hover{
+            color: $text-color;
+
+            &::before{
+                color: $placeholder-color;
+            }
+        }
+    }
+
+    a.active{
+        color: $text-color;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// BREADCRUMB (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .breadcrumb{
+        text-align: right;
+
+        a{
+            &::before{
+                content: '/';
+                padding-left: 10px;
+                padding-right: 7px;
+            }
+        }
+    }
+}

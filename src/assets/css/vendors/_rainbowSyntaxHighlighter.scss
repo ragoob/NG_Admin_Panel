@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// RAINBOW SYNTAX HIGHLIGHTER
+// -----------------------------------------------------------------------------
+pre, .rtl pre{
+    direction: ltr;
+    text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 0px;
+
+    code{
+        direction: ltr;
+        text-align: left;
+
+        .close{
+            float: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            color: inherit;
+            text-shadow: inherit;
+            opacity: inherit;
+        }
+    }
+
+    .selector{
+        color: #008cff;
+    }
+
+    .function{
+        color: #61afef;
+    }
+
+    .constant{
+        color: #07a1a7;
+    }
+}

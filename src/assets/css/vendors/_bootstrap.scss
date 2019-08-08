@@ -1,0 +1,52 @@
+// -----------------------------------------------------------------------------
+// BOOTSTRAP
+// -----------------------------------------------------------------------------
+.alert button:focus{
+    outline: none;
+}
+
+.modal-open .modal{
+    padding: 0px !important;
+    z-index: 4001;
+}
+
+.modal-backdrop{
+    z-index: 4000;
+}
+
+.form-group{
+    .form-check{
+        margin-top: 10px;
+    }
+
+    &:first-child{
+        margin-top: 0px;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// BOOTSTRAP (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .alert-dismissible{
+        direction: rtl;
+        text-align: right;
+        padding-left: 4rem;
+        padding-right: 1.25rem;
+    
+        .close{
+            left: 0px;
+            right: auto;
+        }
+    }
+
+    .form-check{
+        padding-left: 1.25rem;
+        padding-right: 0px;
+    }
+
+    .form-check-input{
+        margin-left: 0px;
+        margin-right: -1.25rem;
+    }
+}

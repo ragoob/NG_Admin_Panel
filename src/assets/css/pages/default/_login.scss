@@ -1,0 +1,121 @@
+// -----------------------------------------------------------------------------
+// LOGIN PAGE
+// -----------------------------------------------------------------------------
+.login-page{
+    @include whd($height: 100vh);
+
+    .section-left{
+        @include whd($width: 50%, $height: 100%);
+        float: left;
+        position: relative;
+        background: img('login-page-img.jpg');
+        background-size: cover;
+        background-position: left center;
+        background-repeat: no-repeat;
+
+        &::after{
+            content: '';
+            background: $primary-color;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.2;
+        }
+    }
+
+    .section-right{
+        @include whd($width: 50%, $height: 100%);
+        float: right;
+
+        .logo{
+            @include whd($width: 220px);
+            margin: auto;
+        }
+
+        .login-form{
+            @include whd($width: 90%);
+            max-width: 450px;
+            margin: 30px auto 20px auto;
+            background: #ffffff;
+            @include light-box-shadow;
+            @include border-radius(5px);
+            padding: 40px;
+
+            .form-heading{
+                @include whd;
+                margin: 0px;
+                margin-top: -8px;
+                margin-bottom: 25px;
+                font-family: $primary-font;
+                font-size: 2rem;
+                font-weight: 600;
+                color: $text-color;
+            }
+
+            i.ion-ios-lock{
+                padding: 0px 1.5px;
+            }
+
+            .form-check{
+                margin-top: 0px;
+            }
+
+            button.btn[type="submit"]{
+                @include whd;
+                float: none;
+                margin: auto;
+
+                span, i{
+                    float: none;
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// LOGIN PAGE (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .login-page{
+        .section-left{
+            float: right;
+            @include flip-image;
+        }
+    
+        .section-right{
+            float: left;
+
+            .login-form{
+                .form-heading{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// LOGIN PAGE (RESPONSIVE)
+// -----------------------------------------------------------------------------
+@media only screen and (max-width: 1000px){
+    .login-page .section-left{
+        display: none;
+    }
+
+    .login-page .section-right{
+        @include whd($width: 100%, $height: 100%);
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .login-page .section-right .login-form{
+        padding: 25px;
+    }
+}

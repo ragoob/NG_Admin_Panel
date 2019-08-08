@@ -1,0 +1,161 @@
+// -------------------------------------
+// --------- Cairo Font Familly --------
+// -------------------------------------
+@font-face {
+    font-family: 'Cairo';
+    src: font("Cairo/Cairo-ExtraLight.eot");
+    src: font("Cairo/Cairo-ExtraLight.woff2") format("woff2"),
+         font("Cairo/Cairo-ExtraLight.woff") format("woff"),
+         font("Cairo/Cairo-ExtraLight.ttf") format("truetype"),
+         font("Cairo/Cairo-ExtraLight.svg#Cairo-ExtraLight") format("svg"),
+         font("Cairo/Cairo-ExtraLight.eot?#iefix") format("embedded-opentype");
+    font-weight: 200;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: font("Cairo/Cairo-Light.eot");
+    src: font("Cairo/Cairo-Light.woff2") format("woff2"),
+         font("Cairo/Cairo-Light.woff") format("woff"),
+         font("Cairo/Cairo-Light.ttf") format("truetype"),
+         font("Cairo/Cairo-Light.svg#Cairo-Light") format("svg"),
+         font("Cairo/Cairo-Light.eot?#iefix") format("embedded-opentype");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: font("Cairo/Cairo-Regular.eot");
+    src: font("Cairo/Cairo-Regular.woff2") format("woff2"),
+         font("Cairo/Cairo-Regular.woff") format("woff"),
+         font("Cairo/Cairo-Regular.ttf") format("truetype"),
+         font("Cairo/Cairo-Regular.svg#Cairo-Regular") format("svg"),
+         font("Cairo/Cairo-Regular.eot?#iefix") format("embedded-opentype");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: font("Cairo/Cairo-SemiBold.eot");
+    src: font("Cairo/Cairo-SemiBold.woff2") format("woff2"),
+         font("Cairo/Cairo-SemiBold.woff") format("woff"),
+         font("Cairo/Cairo-SemiBold.ttf") format("truetype"),
+         font("Cairo/Cairo-SemiBold.svg#Cairo-SemiBold") format("svg"),
+         font("Cairo/Cairo-SemiBold.eot?#iefix") format("embedded-opentype");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: font("Cairo/Cairo-Bold.eot");
+    src: font("Cairo/Cairo-Bold.woff2") format("woff2"),
+         font("Cairo/Cairo-Bold.woff") format("woff"),
+         font("Cairo/Cairo-Bold.ttf") format("truetype"),
+         font("Cairo/Cairo-Bold.svg#Cairo-Bold") format("svg"),
+         font("Cairo/Cairo-Bold.eot?#iefix") format("embedded-opentype");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: font("Cairo/Cairo-Black.eot");
+    src: font("Cairo/Cairo-Black.woff2") format("woff2"),
+         font("Cairo/Cairo-Black.woff") format("woff"),
+         font("Cairo/Cairo-Black.ttf") format("truetype"),
+         font("Cairo/Cairo-Black.svg#Cairo-Black") format("svg"),
+         font("Cairo/Cairo-Black.eot?#iefix") format("embedded-opentype");
+    font-weight: 900;
+    font-style: normal
+}
+
+// ---------------------------------------
+// --------- Tajawal Font Familly --------
+// ---------------------------------------
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-ExtraLight.eot");
+    src: font("Tajawal/Tajawal-ExtraLight.woff2") format("woff2"),
+         font("Tajawal/Tajawal-ExtraLight.woff") format("woff"),
+         font("Tajawal/Tajawal-ExtraLight.ttf") format("truetype"),
+         font("Tajawal/Tajawal-ExtraLight.svg#Tajawal-ExtraLight") format("svg"),
+         font("Tajawal/Tajawal-ExtraLight.eot?#iefix") format("embedded-opentype");
+    font-weight: 200;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-Light.eot");
+    src: font("Tajawal/Tajawal-Light.woff2") format("woff2"),
+         font("Tajawal/Tajawal-Light.woff") format("woff"),
+         font("Tajawal/Tajawal-Light.ttf") format("truetype"),
+         font("Tajawal/Tajawal-Light.svg#Tajawal-Light") format("svg"),
+         font("Tajawal/Tajawal-Light.eot?#iefix") format("embedded-opentype");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-Regular.eot");
+    src: font("Tajawal/Tajawal-Regular.woff2") format("woff2"),
+         font("Tajawal/Tajawal-Regular.woff") format("woff"),
+         font("Tajawal/Tajawal-Regular.ttf") format("truetype"),
+         font("Tajawal/Tajawal-Regular.svg#Tajawal-Regular") format("svg"),
+         font("Tajawal/Tajawal-Regular.eot?#iefix") format("embedded-opentype");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-Medium.eot");
+    src: font("Tajawal/Tajawal-Medium.woff2") format("woff2"),
+         font("Tajawal/Tajawal-Medium.woff") format("woff"),
+         font("Tajawal/Tajawal-Medium.ttf") format("truetype"),
+         font("Tajawal/Tajawal-Medium.svg#Tajawal-Medium") format("svg"),
+         font("Tajawal/Tajawal-Medium.eot?#iefix") format("embedded-opentype");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-Bold.eot");
+    src: font("Tajawal/Tajawal-Bold.woff2") format("woff2"),
+         font("Tajawal/Tajawal-Bold.woff") format("woff"),
+         font("Tajawal/Tajawal-Bold.ttf") format("truetype"),
+         font("Tajawal/Tajawal-Bold.svg#Tajawal-Bold") format("svg"),
+         font("Tajawal/Tajawal-Bold.eot?#iefix") format("embedded-opentype");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-ExtraBold.eot");
+    src: font("Tajawal/Tajawal-ExtraBold.woff2") format("woff2"),
+         font("Tajawal/Tajawal-ExtraBold.woff") format("woff"),
+         font("Tajawal/Tajawal-ExtraBold.ttf") format("truetype"),
+         font("Tajawal/Tajawal-ExtraBold.svg#Tajawal-ExtraBold") format("svg"),
+         font("Tajawal/Tajawal-ExtraBold.eot?#iefix") format("embedded-opentype");
+    font-weight: 800;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    src: font("Tajawal/Tajawal-Black.eot");
+    src: font("Tajawal/Tajawal-Black.woff2") format("woff2"),
+         font("Tajawal/Tajawal-Black.woff") format("woff"),
+         font("Tajawal/Tajawal-Black.ttf") format("truetype"),
+         font("Tajawal/Tajawal-Black.svg#Tajawal-Black") format("svg"),
+         font("Tajawal/Tajawal-Black.eot?#iefix") format("embedded-opentype");
+    font-weight: 900;
+    font-style: normal
+}

@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// ASSET FUNCTION FOR IMAGES AND FONTS FILES
+// -----------------------------------------------------------------------------
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+@function img($path, $base: '../') {
+  @return asset($base, 'img/', $path);
+}
+
+@function font($path, $base: '../') {
+  @return asset($base, 'fonts/', $path);
+}

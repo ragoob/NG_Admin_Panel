@@ -1,0 +1,19 @@
+<ng-container  *ngIf="selfLayout !== 'blank' ; else selfLayoutBlank">
+<app-header>
+
+</app-header>
+<app-side-menu>
+
+</app-side-menu>
+<div class="main-panel">
+  <app-mini-header>
+      
+  </app-mini-header>
+  <router-outlet></router-outlet>
+  
+</div>        
+</ng-container>
+
+<ng-template #selfLayoutBlank>
+	<router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,20 @@
+<div class="user-details">
+    <div class="image-name">
+        
+        <img class="user-avatar" [src]="(Auth.currentUser | async).photoPath" alt="User Avatar" />
+        <span class="user-name">{{(Auth.currentUser | async).fullName}}</span>
+    </div>
+    <div class="user-details-dropdown" [ngClass]="{'show': toggled}">
+        <img class="user-avatar" [src]="(Auth.currentUser | async).photoPath" alt="Username" />
+        <div class="user-name">{{(Auth.currentUser | async).fullName}}</div>
+        <div class="email-address">{{(Auth.currentUser | async).email}}</div>
+        <div class="line-separator"></div>
+        <ul class="user-options">
+            <li><a href="#"><i class="ion-ios-person"></i><span>Edit Profile</span></a></li>
+            <li><a href="#"><i class="ion-ios-people"></i><span>Manage User Accounts</span></a></li>
+            <li><a href="#"><i class="ion-ios-add"></i><span>Create New User Account</span></a></li>
+            <li><a [routerLink]="[ '/login']"><i class="ion-ios-power"></i><span>Logout</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

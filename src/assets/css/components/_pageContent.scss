@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// PAGE CONTENT
+// -----------------------------------------------------------------------------
+.page-content{
+    @include whd;
+    padding: 2rem;
+    background: #ffffff;
+    margin: 2rem 0px;
+    margin-bottom: 10px;
+    @include light-box-shadow;
+}

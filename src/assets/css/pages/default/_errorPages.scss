@@ -1,0 +1,60 @@
+// -----------------------------------------------------------------------------
+// ERROR PAGES
+// -----------------------------------------------------------------------------
+.error-page{
+    @include whd($height: 100vh);
+    padding: 2rem;
+    text-align: center;
+
+    .logo{
+        @include whd($width: auto, $height: 50px);
+        margin: 0px auto 20px auto;
+    }
+
+    .error-title{
+        @include whd;
+        font-family: $secondary-font;
+        font-weight: 500;
+        font-size: 1.8rem;
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 10px;
+        line-height: 2.5rem;
+    }
+
+    .error-description{
+        @include whd;
+        max-width: 700px;
+        margin: auto;
+        font-family: $primary-font;
+        font-weight: 300;
+        font-size: 1rem;
+        color: $text-color;
+        line-height: 1.5rem;
+
+        a{
+            font-family: $secondary-font;
+            font-size: inherit;
+            font-weight: 500;
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+
+    .return-link{
+        display: inline-block;
+        float: none;
+        margin: 20px auto 0px auto;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// ERROR PAGES (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .error-page .return-link{
+        display: inline-block;
+        float: none;
+        margin: 20px auto 0px auto;
+    }
+}

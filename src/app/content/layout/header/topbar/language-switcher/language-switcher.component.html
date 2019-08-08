@@ -1,0 +1,8 @@
+<div class="language-switcher">
+    <img class="current-lang" [src]="language?.flag" alt="{{language?.lang}}" />
+    <div class="lang-select-options" [ngClass]="{'show': toggled}">
+        <a href="javascript:;" (click)="setLanguage(lang.lang)" [ngClass]="{'hidden': lang.lang == language?.lang}"  *ngFor="let lang of languages" class="lang-option" data-lang="{{lang.seocode}}">
+            <img [src]="lang.flag" alt="{{lang.lang}}" />
+            <span>{{lang.lang}}</span></a>
+    </div>
+</div>

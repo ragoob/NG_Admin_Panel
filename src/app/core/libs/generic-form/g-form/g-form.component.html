@@ -1,0 +1,167 @@
+<form novalidate [formGroup]="myForm" (ngSubmit)="saveChanges()">
+
+    <section class="page-body">
+        <div class="page-title">
+            <i [ngClass]="pageIcon"></i>
+            <div class="page-name-description">
+                <h1 class="name">{{pageTitle}}</h1>
+                <p class="description" *ngIf="pageDescription">{{pageDescription}}</p>
+            </div>
+            <div class="action-btns">
+                <button [disabled]="disableSubmit || !formchanged" type="submit" class="btn btn-save">
+                    <i class="ion-ios-checkmark-circle-outline"></i>
+                    <span>{{'BUTTONS.SAVE' | translate}}</span>
+                </button>
+
+                <a class="btn btn-back" *ngIf="HasBackButton" [routerLink]="BackButtonRoute">
+                    <i class="ion-ios-redo"></i>
+                    <span>{{'BUTTONS.BACK' | translate}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="page-content">
+           <div class="row">
+            <ng-template ngFor let-field [ngForOf]="fields">
+                
+                <div [ngClass]="field.colclass">
+                    <div *ngIf="field.type == 'text'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <input [disabled]="field.disabled" type="text" [id]="field.name" class="form-control" [formControl]="myForm.get(field.name)" />
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                        
+                     
+                      </div>
+
+                      <div *ngIf="field.type == 'date'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <p-calendar [style]="{ 'width':'100%'}" [inputStyle]="{ 'width':'100%'}" [disabled]="field.disabled" [formControl]="myForm.get(field.name)" [id]="field.name"></p-calendar>
+
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                        
+                     
+                      </div>
+                      <div *ngIf="field.type == 'datetime'" class="form-group">
+                            <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                            <p-calendar showTime="true" hourFormat="12" [style]="{ 'width':'100%'}" [inputStyle]="{ 'width':'100%'}" [disabled]="field.disabled" [formControl]="myForm.get(field.name)" [id]="field.name"></p-calendar>
+    
+                            <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                                <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                    {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                        {{field.title}}
+                                      </span>
+                                </div>
+                            </ng-container>
+                            
+                         
+                          </div>
+                          <div *ngIf="field.type == 'time'" class="form-group">
+                                <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                                <p-calendar timeOnly="true" hourFormat="12" [style]="{ 'width':'100%'}" [inputStyle]="{ 'width':'100%'}" [disabled]="field.disabled" [formControl]="myForm.get(field.name)" [id]="field.name"></p-calendar>
+        
+                                <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                                    <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                        {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                            {{field.title}}
+                                          </span>
+                                    </div>
+                                </ng-container>
+                                
+                             
+                              </div>
+
+
+                      <div *ngIf="field.type == 'textarea'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <textarea class="form-control" [disabled]="field.disabled"  [id]="field.name" rows="5" [formControl]="myForm.get(field.name)"></textarea>
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                        
+                     
+                      </div>
+
+                      
+                
+                      <div *ngIf="field.type == 'number'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <input [disabled]="field.disabled" type="number" [id]="field.name" class="form-control" [formControl]="myForm.get(field.name)" />
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                      </div>
+                
+                    <div class="form-group"  *ngIf="field.type == 'checkbox'">
+                        <div class="form-check">
+                            <input [disabled]="field.disabled" type="checkbox"  [id]="field.name" [formControl]="myForm.get(field.name)" class="form-check-input" >
+                            <label class="form-check-label" for="field.name">{{field.title}}</label>
+                        </div>
+                    </div>
+                    
+    
+                      <div *ngIf="field.type == 'select'" class="form-group">
+                        <label for="field.name" [translate]="field.translate">{{field.title}}</label>
+                        <select [disabled]="field.disabled" class="form-control" [formControl]="myForm.get(field.name)">
+                          <option *ngFor="let lookup of field.Lookups | async" [value]="lookup[field.LookupInfo.valuefield]" >
+                            {{lookup[field.LookupInfo.textfield]}}
+                          </option>
+                        </select>
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                      </div>
+    
+                      <div *ngIf="field.type == 'dropdown'" class="form-group">
+                            <label for="field.name" [translate]="field.translate">{{field.title}}:</label>
+                           
+                            <p-dropdown  placeholder="{{field.placeholder}}" [disabled]="field.disabled" [showClear]="true" [dataKey]="field.LookupInfo.valuefield"  [filter]="true" [style]="{ 'width':'100%'}" [options]="field.Lookups | async" [formControl]="myForm.get(field.name)"  [optionLabel]="field.LookupInfo.textfield"></p-dropdown>
+    
+                            <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                                <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                    {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                        {{field.title}}
+                                      </span>
+                                </div>
+                            </ng-container>
+                          </div>
+                    </div>
+            
+              
+              
+                  </ng-template>
+           </div>
+           
+          
+        </div>
+    </section>
+
+     
+    
+        </form>
+
+
+
+        

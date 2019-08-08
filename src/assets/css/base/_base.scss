@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// BASE
+// -----------------------------------------------------------------------------
+.rtl{
+    direction: rtl;
+}
+
+.center-horizontally{
+    @include whd($height: 100%, $display: table);
+    text-align: center;
+
+    .center-vertically{
+        @include whd($height: 100%, $display: table-cell);
+        vertical-align: middle;
+    }
+}
+
+.page-preloader{
+    @include whd($height: 100vh);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 9999;
+    background: #ffffff;
+
+    .sk-double-bounce{
+        margin: 20px auto 0px auto;
+
+        .sk-child{
+            background-color: $primary-color;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+// -----------------------------------------------------------------------------
+// DATE RANGE PICKER
+// -----------------------------------------------------------------------------
+.daterangepicker{
+    direction: ltr;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover{
+    background-color: $primary-color;
+}
+
+.daterangepicker .drp-calendar.left{
+    padding: 0.5rem 1rem;
+}
+
+.daterangepicker.show-calendar .drp-buttons{
+    text-align: center;
+
+    .btn{
+        display: inline-block;
+        float: none;
+        margin: 0px 0.5rem;
+    }
+
+    .cancelBtn{
+        background: $error-color;
+        color: #ffffff;
+        border: none;
+        outline: none;
+        line-height: 28px;
+        @include border-radius(5px);
+        @include transition(0.3s, ease-in-out);
+        cursor: pointer;
+        
+        &::before{
+            display: none
+        };
+    }
+
+    .applyBtn{
+        background: $primary-color;
+        color: #ffffff;
+        border: none;
+        outline: none;
+        line-height: 28px;
+        @include border-radius(5px);
+        @include transition(0.3s, ease-in-out);
+        cursor: pointer;
+
+        &:focus, &:active:focus{
+            box-shadow: none;
+        }
+
+        &::before{
+            display: none
+        };
+    }
+}
+
+.daterangepicker .drp-calendar{
+    max-width: 100%;
+}
+
+.daterangepicker.show-calendar .ranges{
+    margin: 0px;
+}
+
+.daterangepicker .calendar-time{
+    margin: 0px;
+}

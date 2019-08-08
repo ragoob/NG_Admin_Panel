@@ -1,0 +1,228 @@
+
+<div class="table-responsive">
+
+        <table class="table">
+         <thead *ngIf="addButton">
+           <tr>
+             <th style="border:none;">
+                    <button class="btn btn-add" (click)="AddNew($event)">
+                            <i class="ion-ios-add"></i>
+                            <span translate="BUTTONS.ADD">Add</span>
+                        </button>
+               
+             </th>
+           </tr>
+         </thead>
+         <thead>
+            <tr>
+                    <ng-container *ngIf="columns && columns?.length > 0" >
+                          <th *ngFor="let col of options.columns" [ngStyle]="{'width': col.cellwidth}" [translate]="col.translate">{{col.title}}</th>
+                          <ng-container *ngIf="editButton || deleteButton">
+                                <th>
+      
+                                </th>
+                              </ng-container>
+                        </ng-container>
+
+                        <ng-template #ebody></ng-template>
+                        
+             
+                        
+                       
+                      
+                        
+            </tr>
+             
+         </thead>
+         <tbody>
+             <ng-container *ngIf="columns && columns?.length > 0">
+              <tr *ngFor="let item of Data  | paginate: config">
+                  
+                  <td *ngFor="let col of options.columns">
+                        {{item[col.name]}}
+                  </td>
+                  <ng-container  *ngIf="editButton || deleteButton">
+                      <td>
+                            <button class="btn btn-edit" *ngIf="editButton" (click)="Edit(item)">
+                                    <i class="fa fa-pencil"></i>
+                                    <span translate="BUTTONS.EDIT">Edit</span>
+                                </button>
+                       
+                          <button *ngIf="deleteButton" class="btn btn-delete" (click)="Delete(item)">
+                                   <i class="ion-ios-trash"></i>
+                              <span translate="BUTTONS.DELETE">حذف</span>
+                          </button>
+                      </td>
+    
+                   </ng-container>
+              </tr>
+             </ng-container>
+            
+             <ng-content  select="[e-body]"></ng-content>
+             
+             
+           
+         </tbody>
+        
+
+        </table>
+        <div  *ngIf="options.Pageable">
+            <pagination-controls  
+            previousLabel="{{'LABELS.PAGER.PERVIOUS' | translate}}"
+            nextLabel="{{'LABELS.PAGER.NEXT' | translate}}"
+        
+            (pageChange)="onPageChange($event)"></pagination-controls>
+        </div>
+     
+      </div>
+
+
+     <bs-modal [closable]="true" [title]="modaltitle | async" *ngIf="options.editable">
+        <div modal-body>
+         <form [formGroup]="myForm" (ngSubmit)="saveChanges()">
+            <ng-template ngFor let-field [ngForOf]="options.columns">
+                
+                <div [ngClass]="field.colclass">
+                    <div *ngIf="field.type == 'text'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <input [disabled]="field.disabled" type="text" [id]="field.name" class="form-control" [formControl]="myForm.get(field.name)" />
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                        
+                     
+                      </div>
+
+                      <div *ngIf="field.type == 'date'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <p-calendar [style]="{ 'width':'100%'}" [inputStyle]="{ 'width':'100%'}" [disabled]="field.disabled" [formControl]="myForm.get(field.name)" [id]="field.name"></p-calendar>
+
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                        
+                     
+                      </div>
+                      <div *ngIf="field.type == 'datetime'" class="form-group">
+                            <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                            <p-calendar showTime="true" hourFormat="12" [style]="{ 'width':'100%'}" [inputStyle]="{ 'width':'100%'}" [disabled]="field.disabled" [formControl]="myForm.get(field.name)" [id]="field.name"></p-calendar>
+    
+                            <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                                <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                    {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                        {{field.title}}
+                                      </span>
+                                </div>
+                            </ng-container>
+                            
+                         
+                          </div>
+                          <div *ngIf="field.type == 'time'" class="form-group">
+                                <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                                <p-calendar timeOnly="true" hourFormat="12" [style]="{ 'width':'100%'}" [inputStyle]="{ 'width':'100%'}" [disabled]="field.disabled" [formControl]="myForm.get(field.name)" [id]="field.name"></p-calendar>
+        
+                                <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                                    <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                        {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                            {{field.title}}
+                                          </span>
+                                    </div>
+                                </ng-container>
+                                
+                             
+                              </div>
+
+
+                      <div *ngIf="field.type == 'textarea'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <textarea class="form-control" [disabled]="field.disabled"  [id]="field.name" rows="5" [formControl]="myForm.get(field.name)"></textarea>
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                        
+                     
+                      </div>
+
+                      
+                
+                      <div *ngIf="field.type == 'number'" class="form-group">
+                        <label [for]="field.name" [translate]="field.translate">{{field.title}}:</label>
+                        <input [disabled]="field.disabled" type="number" [id]="field.name" class="form-control" [formControl]="myForm.get(field.name)" />
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                      </div>
+                
+                    <div class="form-group"  *ngIf="field.type == 'checkbox'">
+                        <div class="form-check">
+                            <input [disabled]="field.disabled" type="checkbox"  [id]="field.name" [formControl]="myForm.get(field.name)" class="form-check-input" >
+                            <label class="form-check-label" for="field.name">{{field.title}}</label>
+                        </div>
+                    </div>
+                    
+    
+                      <div *ngIf="field.type == 'select'" class="form-group">
+                        <label for="field.name" [translate]="field.translate">{{field.title}}</label>
+                        <select [disabled]="field.disabled" class="form-control" [formControl]="myForm.get(field.name)">
+                          <option *ngFor="let lookup of field.Lookups | async" [value]="lookup[field.LookupInfo.valuefield]" >
+                            {{lookup[field.LookupInfo.textfield]}}
+                          </option>
+                        </select>
+                        <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                            <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                    {{field.title}}
+                                  </span>
+                            </div>
+                        </ng-container>
+                      </div>
+    
+                      <div *ngIf="field.type == 'dropdown'" class="form-group">
+                            <label for="field.name" [translate]="field.translate">{{field.title}}:</label>
+                           
+                            <p-dropdown  placeholder="{{field.placeholder}}" [disabled]="field.disabled" [showClear]="true" [dataKey]="field.LookupInfo.valuefield"  [filter]="true" [style]="{ 'width':'100%'}" [options]="field.Lookups | async" [formControl]="myForm.get(field.name)"  [optionLabel]="field.LookupInfo.textfield"></p-dropdown>
+    
+                            <ng-container *ngIf="submitted && myForm.get(field.name).errors">
+                                <div class="alert alert-danger"  *ngIf="myForm.get(field.name).errors.required">
+                                    {{'FORMVALIDATION.REQUIRED' | translate}} <span  [translate]="field.translate">
+                                        {{field.title}}
+                                      </span>
+                                </div>
+                            </ng-container>
+                          </div>
+                    </div>
+            
+
+              
+              
+                  </ng-template>
+
+                  <div class="row">
+                      <div class="col-md-12">
+                        <button class="btn btn-save" type="submit">
+                            <i class="ion-ios-checkmark-circle-outline"></i>
+                            <span translate="BUTTONS.SAVE">Save</span>
+                        </button>
+                      </div>
+                  </div>
+         </form>
+        </div>
+     </bs-modal>
+  
+      

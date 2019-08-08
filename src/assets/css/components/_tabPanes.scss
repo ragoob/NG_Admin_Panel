@@ -1,0 +1,117 @@
+// -----------------------------------------------------------------------------
+// TAB PANES
+// -----------------------------------------------------------------------------
+.tab-panes{
+    @include whd($display: inline-block);
+    margin-top: 2rem;
+    position: relative;
+    top: 5px;
+
+    & ~ .page-content{
+        margin-top: 0px;
+    }
+
+    ul{
+        @include whd($display: inline-block);
+        margin: 0;
+        padding: 0;
+
+        li{
+            list-style: none;
+            float: left;
+            padding: 15px 20px;
+            background: #ffffff;
+            color: $text-color;
+            font-family: $primary-font;
+            border-left: 0.5px solid rgba(0,0,0,0.2);
+            cursor: pointer;
+            @include transition(0.3s, ease-in-out);
+            position: relative;
+            
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                width: 100%;
+                height: 4px;
+                top: -4px;
+                background: transparent;
+                @include transition(0.3s, ease-in-out);
+            }
+            
+            &:hover::before{
+                background: $primary-color;
+                opacity: 0.3;
+            }
+        }
+
+        li.active{
+            @include transition(0.3s, ease-in-out);
+            color: $primary-color;
+            font-weight: 600;
+
+            &::before{
+                background: $primary-color;
+                opacity: 1;
+            }
+
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                bottom: -1px;
+                height: 2px;
+                background: #ffffff;
+                @include transition(0.3s, ease-in-out);
+            }
+            
+            &:hover{
+                background: #ffffff;
+            }
+        }
+    }
+}
+
+.tab-pane-form{
+    display: none;
+}
+
+.tab-pane-form:first-of-type{
+    display: block;
+}
+
+// -----------------------------------------------------------------------------
+// TAB PANES (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .tab-panes ul li{
+        float: right;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// TAB PANES (RESPONSIVE)
+// -----------------------------------------------------------------------------
+@media only screen and (max-width: 900px){
+    .tab-panes{
+        display: none;
+
+        & ~ .page-content{
+            margin-top: 2rem;
+        }
+    }
+
+    .tab-pane-form{
+        display: block !important;
+    }
+
+    .tab-pane-form{
+        margin-top: 50px;
+    }
+
+    .tab-pane-form:first-of-type{
+        margin-top: 0px;
+    }
+}

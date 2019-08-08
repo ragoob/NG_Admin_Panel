@@ -1,0 +1,38 @@
+<section class="page-body">
+        <div class="page-title expand-description-width">
+            <i class="fa fa-table"></i>
+            <div class="page-name-description">
+                <h1 class="name">{{'MENU.TODOLIST' | translate}}</h1>
+               
+            </div>
+        </div>
+        <div class="page-content">
+          <div class="row">
+              <div class="col-md-12">
+                <e-table [options]="tableOption" [Data]="todolist | async" >
+                 
+                   <ng-template #ebody let-item>
+                      <tr>
+                          <td>
+                            {{item.id}}
+                          </td>
+                          <td>
+                             {{item.userId}}
+                           </td>
+                           <td>
+                               {{item.title}}
+                             </td>
+                             <td>
+                                 {{item.completed}}
+                               </td>
+                        </tr>
+                   </ng-template>
+                   
+                  
+                </e-table>
+              </div>
+          </div>
+                </div>
+            
+       
+    </section>

@@ -1,0 +1,107 @@
+// -----------------------------------------------------------------------------
+// WIDTH, HEIGHT, DISPLAY
+// -----------------------------------------------------------------------------
+@mixin whd($width: 100%, $height: auto, $display: block){
+    width: $width;
+    height: $height;
+    display: $display;
+}
+
+// -----------------------------------------------------------------------------
+// BOX SHADOWS
+// -----------------------------------------------------------------------------
+@mixin box-shadow-bottom{
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.04);
+    -webkit-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.04);
+    -moz-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.04);
+    -ms-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.04);
+    -o-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.04);
+}
+
+@mixin box-shadow-all-sides{
+    box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    -moz-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    -ms-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    -o-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+}
+
+@mixin light-box-shadow{
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
+}
+
+// -----------------------------------------------------------------------------
+// BORDER RADIUS
+// -----------------------------------------------------------------------------
+@mixin border-radius($size){
+    border-radius: $size;
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    -ms-border-radius: $size;
+    -o-border-radius: $size;
+}
+
+// -----------------------------------------------------------------------------
+// TRANSFORMS
+// -----------------------------------------------------------------------------
+@mixin rotate($degree){
+    transform: rotate($degree);
+    -webkit-transform: rotate($degree);
+    -moz-transform: rotate($degree);
+    -ms-transform: rotate($degree);
+    -o-transform: rotate($degree);
+}
+
+@mixin translate($x, $y){
+    transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+}
+
+@mixin scale($size){
+    transform: scale($size);
+    -webkit-transform: scale($size);
+    -moz-transform: scale($size);
+    -ms-transform: scale($size);
+    -o-transform: scale($size);
+}
+
+// -----------------------------------------------------------------------------
+// TRANSITIONS
+// -----------------------------------------------------------------------------
+@mixin transition($seconds, $action){
+    transition: $seconds $action;
+    -webkit-transition: $seconds $action;
+    -moz-transition: $seconds $action;
+    -ms-transition: $seconds $action;
+    -o-transition: $seconds $action;
+}
+
+// -----------------------------------------------------------------------------
+// APPEARANCE
+// -----------------------------------------------------------------------------
+@mixin appearance($type){
+    -webkit-appearance: $type;
+    -moz-appearance: $type;
+    -ms-appearance: $type;
+    -o-appearance: $type;
+    appearance: $type;
+}
+
+// -----------------------------------------------------------------------------
+// FLIP IMAGE
+// -----------------------------------------------------------------------------
+@mixin flip-image{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}

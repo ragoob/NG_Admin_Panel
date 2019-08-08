@@ -1,0 +1,61 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// CONFIRGURATIONS AND HELPERS
+// -----------------------------------------------------------------------------
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
+
+// -----------------------------------------------------------------------------
+// VENDORS
+// -----------------------------------------------------------------------------
+@import
+  'vendors/fontAwesome',
+  'vendors/bootstrap';
+// -----------------------------------------------------------------------------
+// BASE STUFF
+// -----------------------------------------------------------------------------
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/keyframes',
+  'base/helpers';
+
+// -----------------------------------------------------------------------------
+// LAYOUTS
+// -----------------------------------------------------------------------------
+@import
+  'layout/header',
+  'layout/navigation',
+  'layout/mainPanel',
+  'layout/footer';
+
+// -----------------------------------------------------------------------------
+// COMPONENTS
+// -----------------------------------------------------------------------------
+@import
+  'components/breadcrumb',
+  'components/pageTitle',
+  'components/pageContent',
+  'components/buttons',
+  'components/modals',
+  'components/forms',
+  'components/tabPanes';
+
+// -----------------------------------------------------------------------------
+// PAGES SPECIFIC STYLES
+// -----------------------------------------------------------------------------
+@import
+  'pages/default/login',
+  'pages/default/forgotPassword',
+  'pages/default/resetPassword',
+  'pages/default/errorPages';
+
+// -----------------------------------------------------------------------------
+// DEFAULT THEME STYLE
+// -----------------------------------------------------------------------------
+@import
+  'themes/default';

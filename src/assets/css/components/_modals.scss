@@ -1,0 +1,54 @@
+// -----------------------------------------------------------------------------
+// GENERAL
+// -----------------------------------------------------------------------------
+.modal-content{
+    border: 0px;
+    @include border-radius(0.5rem);
+    overflow: hidden;
+}
+
+.modal-header{
+    background: $primary-color;
+    color: #ffffff;
+    border: 0px;
+
+    .close{
+        outline: none;
+        color: #ffffff;
+        @include transition(0.3s, linear);
+    
+        &:hover{
+            color: #ffffff;
+        }
+    }
+}
+
+.modal-body{
+    padding: 2rem 1rem;
+}
+
+.modal-footer{
+    padding: 0rem 1rem 1rem 1rem;
+    border: 0px;
+}
+
+// -----------------------------------------------------------------------------
+// GENERAL (RTL)
+// -----------------------------------------------------------------------------
+.rtl .modal-header .close{
+    float: left;
+    margin: -1rem auto -1rem -1rem;
+}
+
+.rtl .modal-body{
+    text-align: right;
+}
+
+// -----------------------------------------------------------------------------
+// DELETE MODAL
+// -----------------------------------------------------------------------------
+.delete-modal{
+    .modal-header{
+        background: $error-color;
+    }
+}

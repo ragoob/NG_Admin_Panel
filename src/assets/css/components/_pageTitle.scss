@@ -1,0 +1,439 @@
+// -----------------------------------------------------------------------------
+// PAGE TITLE
+// -----------------------------------------------------------------------------
+.page-title{
+    @include whd($display: flex);
+    align-items: center;
+
+    i{
+        font-size: 3rem;
+        color: $text-color;
+    }
+
+    .page-name-description{
+        max-width: 500px;
+        margin-left: 15px;
+        padding-right: 30px;
+
+        .name{
+            font-size: 1.5rem;
+            margin-bottom: 0px;
+            font-family: $primary-font;
+            font-weight: 600;
+            color: $text-color;
+        }
+    
+        .description{
+            font-size: 1rem;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            font-family: $secondary-font;
+            font-weight: 400;
+            color: $placeholder-color;            
+        }
+    }
+
+    .action-btns{
+        @include whd($width: auto, $display: flex);
+        align-items: center;
+        margin-left: auto;
+        position: relative;
+
+        .btn{
+            @include whd($width: auto);
+            float: left;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            outline: none;
+            line-height: 28px;
+            margin-right: 15px;
+            @include border-radius(5px);
+            @include transition(0.3s, ease-in-out);
+            cursor: pointer;
+
+            i{
+                float: left;
+                font-size: 1.2rem;
+                color: #ffffff;
+                margin-right: 10px;
+            }
+
+            i.fa{
+                line-height: 28px;
+            }
+
+            span{
+                @include whd($width: auto);
+                float: right;
+                font-size: 1rem;
+            }
+
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+
+        .action-btn{
+            @include whd($width: auto);
+            float: left;
+            cursor: pointer;
+
+            button.actions{
+                @include whd($width: auto, $display: flex);
+                align-items: center;
+                padding: 0.6rem 1.5rem;
+                background: $primary-color;
+                color: #ffffff;
+                border: none;
+                outline: none;
+                @include border-radius(5px);
+                @include transition(0.3s, ease-in-out);
+
+                i{
+                    float: right;
+                    font-size: 1.2rem;
+                    color: #ffffff;
+                    margin-left: 10px;
+                }
+
+                span{
+                    @include whd($width: auto);
+                    float: left;
+                    font-size: 1rem;
+                }
+
+                
+                &:hover{
+                    background: $primary-color-dark;
+                    color: #ffffff;
+
+                    i{
+                        color: #ffffff;
+                    }
+                }
+            }  
+        }
+
+        .action-btns-dropdown{
+            @include whd($width: 280px);
+            background: #ffffff;
+            position: absolute;
+            right: 0px;
+            top: 80px;
+            @include box-shadow-all-sides;
+            @include border-radius(7px);
+            padding: 0.5rem 0.7rem;
+            @include transition(0.2s, ease-in-out);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 5;
+
+            ul{
+                @include whd;
+                padding: 0px;
+                margin: 0px;
+                position: relative;
+                z-index: 2;
+
+                li{
+                    @include whd;
+                    padding: 0.3rem 0.5rem;
+                    list-style-type: none;
+                    border-radius: 5px;
+                    @include border-radius(5px);
+                    background: transparent;
+                    @include transition(0.1s, ease-in-out);
+
+                    a{
+                        @include whd($height: 20px, $display: inline-block);
+                        font-family: $secondary-font;
+                        font-size: 0.95rem;
+                        color: $placeholder-color;
+                        text-decoration: none;
+                        line-height: 0px;
+                        text-align: left;
+                        @include transition(0.1s, ease-in-out);
+
+                        i{
+                            @include whd($width: 15px, $height: 15px, $display: inline-block);
+                            font-size: 1.3rem;
+                            margin-right: 12px;
+                            text-align: center;
+                            position: relative;
+                            top: 2px;
+                            color: $placeholder-color;
+                            @include transition(0.1s, ease-in-out);
+                        }
+
+                        i.fa{
+                            font-size: 1rem;
+                        }
+                    }
+
+                    &:hover{
+                        background: $light-color;
+
+                        a{
+                            color: $primary-color;
+
+                            i{
+                                color: $primary-color;
+                            }
+                        }                            
+                    }
+                }
+            }
+
+            &::before{
+                content: '';
+                @include whd($width: 15px, $height: 15px);
+                background: #ffffff;
+                position: absolute;
+                top: -5px;
+                right: 55px;
+                @include border-radius(3px);
+                @include rotate(45deg);
+                z-index: 1;
+                @include box-shadow-all-sides;
+            }
+        }
+
+        .action-btns-dropdown.show{
+            visibility: visible;
+            opacity: 1;
+            @include translate(0px, -20px);
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// PAGE TITLE (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .page-title{
+
+        .page-name-description{
+            margin-right: 15px;
+            margin-left: 0px;
+            padding-left: 30px;
+            padding-right: 0px;
+    
+            .name{
+                text-align: right;
+            }
+        
+            .description{
+                text-align: right;
+            }
+        }
+    
+        .action-btns{
+            margin-right: auto;
+            margin-left: 0px;
+
+            .btn{
+                float: right;
+                margin-left: 15px;
+                margin-right: 0px;
+                padding: 0.4rem 1.5rem;
+    
+                i{
+                    float: right;
+                    margin-left: 10px;
+                    margin-right: 0px;
+                    font-size: 1.1rem;
+                }
+    
+                span{
+                    float: left;
+                    font-size: 0.9rem;
+                }
+    
+                &:last-child{
+                    margin-left: 0px;
+                }
+            }
+    
+            .action-btn{
+                float: right;
+
+                button.actions{
+                    i{
+                        float: left;
+                        margin-right: 10px;
+                        margin-left: 0px;
+                        font-size: 1.1rem;
+                    }
+    
+                    span{
+                        float: right;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+    
+            .action-btns-dropdown{
+                left: 0px;
+                right: auto;
+    
+                ul{
+                    li{
+                        a{
+                            text-align: right;
+    
+                            i{
+                                margin-left: 12px;
+                                margin-right: 0px;
+                            }
+    
+                            i.fa{
+                                font-size: 1rem;
+                            }
+                        }
+    
+                        &:hover{
+                            background: $light-color;
+    
+                            a{
+                                color: $primary-color;
+    
+                                i{
+                                    color: $primary-color;
+                                }
+                            }                            
+                        }
+                    }
+                }
+    
+                &::before{
+                    left: 55px;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// PAGE TITLE (RESPONSIVE)
+// -----------------------------------------------------------------------------
+@media only screen and (max-width: 1200px){
+    .page-title, .rtl .page-title{
+        display: block;
+    }
+
+    .rtl .page-title{
+        text-align: right;
+    }
+
+    .page-title .page-name-description,
+    .rtl .page-title .page-name-description{
+        margin: 0px;
+        padding: 0px;
+        margin-top: 20px;
+    }
+
+    .page-title .action-btns,
+    .rtl .page-title .action-btns{
+        width: 100%;
+        display: inline-block;
+    }
+
+    .page-title .action-btns .btn,
+    .rtl .page-title .action-btns .btn,
+    .page-title .action-btns .action-btn,
+    .rtl .page-title .action-btns .action-btn{
+        margin-top: 10px;
+    }
+
+    .page-title .action-btns .action-btns-dropdown{
+        top: 100px;
+        left: 0px;
+        right: auto;
+    }
+
+    .page-title .action-btns .action-btns-dropdown::before{
+        left: 55px;
+        right: auto;
+    }
+
+    .rtl .page-title .action-btns .action-btns-dropdown{
+        top: 100px;
+        right: 0px;
+        left: auto;
+    }
+
+    .rtl .page-title .action-btns .action-btns-dropdown::before{
+        right: 55px;
+        left: auto;
+    }
+
+    .page-title .action-btns .action-btn,
+    .rtl .page-title .action-btns .action-btn{
+        float: none;
+        clear: both;
+        padding-top: 10px;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// PAGE TITLE (HELPER CLASSES)
+// -----------------------------------------------------------------------------
+.page-title.expand-description-width .page-name-description{
+    max-width: none;
+}
+
+.page-title.fixed-on-scroll.active{
+    width: calc(100% - 251px);
+    position: fixed;
+    top: 0px;
+    left: 251px;
+    right: 0px;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    @include box-shadow-bottom;
+    z-index: 50;
+    @include translate(0px, 60px);
+    @include transition(0.5s, ease-in-out);
+}
+
+.rtl .page-title.fixed-on-scroll.active{
+    left: 0px;
+    right: 251px;
+}
+
+.hide-nav-menu .page-title.fixed-on-scroll.active{
+    width: 100%;
+    left: 0px;
+    right: 0px;
+}
+
+// -----------------------------------------------------------------------------
+// PAGE TITLE (HELPER CLASSES - RESPONSIVE)
+// -----------------------------------------------------------------------------
+@media only screen and (max-width: 1200px){    
+    .page-title.fixed-on-scroll.active > i, 
+    .rtl .page-title.fixed-on-scroll.active > i{
+        display: none;
+    }
+
+    .page-title.fixed-on-scroll.active .page-name-description,
+    .rtl .page-title.fixed-on-scroll.active .page-name-description{
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .page-title.fixed-on-scroll.active{
+        width: 100%;
+        left: 0px;
+        right: 0px;
+    }
+
+    .rtl .page-title.fixed-on-scroll.active{
+        width: 100%;
+        right: 0px;
+        left: 0px;
+    }
+}

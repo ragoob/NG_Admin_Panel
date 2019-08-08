@@ -1,0 +1,55 @@
+// -----------------------------------------------------------------------------
+// GENERAL
+// -----------------------------------------------------------------------------
+body{
+    @include whd;
+    font-family: $primary-font;
+    background: $light-color;
+}
+
+// -----------------------------------------------------------------------------
+// PLACEHOLDERS
+// -----------------------------------------------------------------------------
+::-webkit-input-placeholder {
+    font-family: $secondary-font;
+    font-weight: 300;
+    color: $placeholder-color;
+    @include transition(0.3s, ease-in-out);
+}
+
+:-moz-placeholder {
+    font-family: $secondary-font;
+    font-weight: 300;
+    color: $placeholder-color;
+    @include transition(0.3s, ease-in-out);
+}
+
+::-moz-placeholder {
+    font-family: $secondary-font;
+    font-weight: 300;
+    color: $placeholder-color;
+    @include transition(0.3s, ease-in-out);
+}
+
+:-ms-input-placeholder {
+    font-family: $secondary-font;
+    font-weight: 300;
+    color: $placeholder-color;
+    @include transition(0.3s, ease-in-out);
+}
+
+:focus::-webkit-input-placeholder {
+    color: transparent !important
+}
+
+:focus:-moz-placeholder {
+    color: transparent !important
+}
+
+:focus::-moz-placeholder {
+    color: transparent !important
+}
+
+:focus:-ms-input-placeholder {
+    color: transparent !important
+}

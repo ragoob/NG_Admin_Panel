@@ -1,0 +1,109 @@
+// -----------------------------------------------------------------------------
+// GRID
+// -----------------------------------------------------------------------------
+.k-grid{
+    .k-grid-header th.k-header{
+        text-align: center;
+        padding: 10px 20px;
+        font-size: 1rem;
+        background: $primary-color;
+        color: #ffffff;
+    }
+
+    .k-grid-header .k-link:hover, .k-grid-header .k-sorted,
+    .k-grid-header .k-i-sort-asc-sm, .k-grid-header .k-i-sort-desc-sm, .k-grid-header .k-sort-order{
+        color: #ffffff;
+    }
+
+    tbody tr td{
+        text-align: center;
+    }
+
+    .table-img{
+        @include whd($width: 60px, $height: auto);
+        margin: auto;
+    }
+
+    .k-pager-numbers .k-state-selected{
+        background-color: $primary-color;
+    }
+
+    .as-only-icons{
+        @include whd($width: auto, $display: inline-block);
+    }
+}
+
+.k-column-menu .k-menu:not(.k-context-menu) .k-item.k-state-selected, 
+.k-list .k-item.k-state-selected, .k-list-container .k-button.k-state-active, 
+.k-list-container .k-button:active, .k-list-optionlabel.k-state-selected, 
+.k-menu-group .k-item.k-state-selected, .k-menu.k-context-menu .k-item.k-state-selected, 
+.k-spreadsheet-popup .k-button.k-state-active, .k-spreadsheet-popup .k-button.k-state-selected, 
+.k-spreadsheet-popup .k-button:active{
+    color: $primary-color;
+}
+
+div.k-grid-footer, div.k-grid-header{
+    padding: 0px !important;
+}
+
+.k-grid-content{
+    overflow-y: auto;
+}
+
+.k-grid table td.k-state-focused, .k-grid table th.k-state-focused, 
+.k-grid table tr.k-state-hover, .k-grid table tr:hover{
+    background-color: rgba(0,0,0, 0.02);
+}
+
+// -----------------------------------------------------------------------------
+// GRID (RTL)
+// -----------------------------------------------------------------------------
+.rtl{
+    .k-dropdown-wrap .k-select, .k-numeric-wrap .k-select, .k-picker-wrap .k-select{
+        left: 0px;
+        right: auto;
+    }
+
+    .k-i-arrow-end-left::before, .k-i-seek-w::before{
+        content: "\e009";
+    }
+
+    .k-i-arrow-60-left::before, .k-i-arrow-w::before, .k-i-expand-w::before, .k-i-sarrow-w::before{
+        content: "\e005";
+    }
+
+    .k-i-arrow-end-right::before, .k-i-seek-e::before{
+        content: "\e00b";
+    }
+
+    .k-i-arrow-60-right::before, .k-i-arrow-e::before, .k-i-expand-e::before, .k-i-expand::before, .k-i-sarrow-e::before{
+        content: "\e007";
+    }
+}
+
+// -----------------------------------------------------------------------------
+// DIALOG
+// -----------------------------------------------------------------------------
+.k-dialog{
+    border-color: transparent;
+    box-shadow: none;
+    border: 0px;
+    @include border-radius(7px);
+    overflow: hidden;
+
+    .k-dialog-titlebar{
+        background: #358ecf;
+        color: #ffffff;
+        border: none;
+
+        .k-dialog-title{
+            font-size: 1.25rem;
+            font-family: $primary-font;
+            font-weight: 500;
+        }
+    }
+
+    .k-content{
+        padding: 2rem 1rem;
+    }
+}
