@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Technoapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
@@ -25,3 +26,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+Admin Panel 
+Angular 8 
+
+Demo : http://files.techno-apps.net/
+>>>>>>> 6f58a335daa2e3564a07f3e7ad2d8aa792b51a20
