@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from 'src/app/core/services/todo.service';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Todo } from 'src/app/core/models/todo';
 import { Validators } from '@angular/forms';
 import { TableConfig, Editable } from 'src/app/core/libs/editable/tableConfig';
+import { YearService } from 'src/app/core/services/yearService';
+import { Observable } from 'rxjs';
+export class Year{
+  dateFrom:Date;
+dateTo: Date;
+id: number;
+isActive: boolean;
+name: string;
 
+}
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -12,8 +18,8 @@ import { TableConfig, Editable } from 'src/app/core/libs/editable/tableConfig';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private todoservice : TodoService) { }
-  todolist: Observable<Todo[]>;
+  constructor(private yearservice : YearService) { }
+  todolist: Observable<Year[]>;
   tableOption :TableConfig
 
   ngOnInit() {
@@ -22,41 +28,76 @@ export class ListComponent implements OnInit {
         name : "id",
         title : "id",
         translate : "",
-       type: 'text',
+       type: 'hidden',
        cellwidth : '10%',
-       editable : false,
+       value : 0
       },
       {
-        name : "userId",
-        title : "user Id",
+        name : "dateFrom",
+        title : "تاريخ البداية",
         translate : "",
-        type: 'text',
-      },
-      {
-        name : "title",
-        title : "Title",
-        translate : "",
-        type: 'text',
+        type: 'date',
+        value : new Date(),
         validators : [Validators.required]
       },
       {
-        name : "completed",
-        title : "Completed",
+        name : "dateTo",
+        title : "تاريخ النهاية",
         translate : "",
-        type : 'checkbox',
+        type: 'date',
+        value : new Date(),
+        validators : [Validators.required]
+      },
+      {
+        name : "name",
+        title : "الأسم",
+        translate : "",
+        type : 'text',
+        validators : [Validators.required,Validators.maxLength(4)]
+    
+        
+      },
+
+      {
+        name : "isActive",
+        title : "الحالة",
+        translate : "",
+        type : "checkbox",
         value:true,
-        template : `<input type="checkbox" [checked]="item[col.name]" />`
         
       },
       
     ],
     editable : true,
-    Pageable :true
+    Pageable :true,
+    
     }
+
     this.LoadTodo();
-  }
-  LoadTodo(){
-    this.todolist = this.todoservice.get();
+   
   }
 
+  
+
+  LoadTodo(){
+    this.todolist = this.yearservice.get();
+  }
+
+  delete(item: Year){
+   this.yearservice.delete(item.id)
+   .subscribe(d=> {
+     this.LoadTodo();
+   },error=> {alert(error.error)});
+  }
+  Savechanges(item : Year){
+    var observe : Observable<any>;
+    if(item.id > 0)
+      observe =   this.yearservice.put(item);
+      else
+      observe = this.yearservice.post(item);
+      observe.subscribe(d=> {
+    
+     this.LoadTodo();
+   },error=>{alert(error.error)})
+  }
 }

@@ -1,9 +1,9 @@
-<div class="modal fade create-modal" [ngClass]="{'show': (bsmodalService.Show$ | async)}" [ngStyle]="{'display': (bsmodalService.Show$ | async) ? 'block' : 'none'}">
+<div class="modal fade" [ngClass]="addtionalClass">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">{{title}}</h5>
-            <button type="button" *ngIf="closable" (click)="bsmodalService.Close()" class="close"><span>×</span></button>
+            <button type="button" *ngIf="closable" (click)="bsmodalService.close(id)" class="close"><span>×</span></button>
         </div>
         <div class="modal-body">
             <ng-content select="[modal-body]"></ng-content>

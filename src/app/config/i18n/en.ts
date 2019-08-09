@@ -40,6 +40,9 @@ export const locale = {
 				PERVIOUS : "Pervious",
 				NEXT : "Next"
 			}
+		},
+		MESSAGES : {
+			CONFIRMDELETE :'Are you sure you want to delete this item?'
 		}
 		
 	}

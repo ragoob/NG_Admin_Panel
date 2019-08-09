@@ -22,6 +22,7 @@
     "@angular/router": "~8.1.1",
     "@ngx-translate/core": "^11.0.1",
     "@progress/kendo-theme-default": "latest",
+    "moment": "^2.24.0",
     "ngx-pagination": "^4.1.0",
     "object-path": "^0.11.4",
     "primeicons": "^2.0.0",

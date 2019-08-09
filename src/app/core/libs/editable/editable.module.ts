@@ -9,10 +9,12 @@ import { AccordionModule } from 'primeng/accordion';
 import { DropdownModule } from 'primeng/dropdown';
 import { RouterModule } from '@angular/router';
 import { CalendarModule } from 'primeng/calendar';
+import { TableTemplate } from './TableTemplate';
+import { ColumnComponent } from './ColumnComponent';
 
 
 @NgModule({
-  declarations: [ETableComponent],
+  declarations: [ETableComponent,ColumnComponent, TableTemplate],
   imports: [
     CommonModule,
     NgxPaginationModule,
@@ -23,10 +25,11 @@ import { CalendarModule } from 'primeng/calendar';
     DropdownModule,
     RouterModule,
     CalendarModule
+
    
     
   ],
-  exports : [ETableComponent]
+  exports : [ETableComponent,ColumnComponent]
 
 })
 export class EditableModule { }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL : "https://api-e3asha.techno-apps.net/api/",
+  apiURL : "https://api.hcmpt.sa/api/",
   fileURL : "https://files-e3asha.techno-apps.net"
 };
 

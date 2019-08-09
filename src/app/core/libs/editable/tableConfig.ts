@@ -14,7 +14,7 @@ export class Columns {
     title: string;
     translate ? : string;
     name: string;
-    type: 'text' | 'number' | 'checkbox' | 'select' | 'dropdown' | 'textarea' | 'date' | 'datetime' | 'time';
+    type: 'text' | 'number' | 'checkbox' | 'radio' | 'select' | 'dropdown' | 'textarea' | 'date' | 'datetime' | 'time' | 'hidden' | 'file';
     validators?: Array<ValidatorFn>;
     Lookups ? : Observable<any[]>;
     disabled ?: boolean;
@@ -22,7 +22,6 @@ export class Columns {
     value ? : any;
     cellwidth ? : string;
     editable ?:boolean = true;
-    template ? : string 
   }
 
   export class Pageable{
@@ -39,13 +38,12 @@ export class Columns {
   }
 
   export class Crud{
-      Create : string | CrudOptions;
-      Update : string | CrudOptions;
-      Delete : string | CrudOptions;
+      Create ? : string | CrudOptions;
+      Update ? : string | CrudOptions;
+      Delete ? : string | CrudOptions;
   }
 
   export class CrudOptions{
-      customFunction ? :Function;
       apiURL ? : string;
       headers ? : HttpHeaders
   }

@@ -42,6 +42,10 @@ export const locale = {
 				PERVIOUS : "السابق",
 				NEXT : "التالى"
 			}
+		},
+
+		MESSAGES : {
+			CONFIRMDELETE : 'هل انت متأكد من الحذف ؟'
 		}
 	}
 };
