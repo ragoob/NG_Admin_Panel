@@ -1,4 +1,3 @@
-Admin Panel 
-Angular 8 
+my Light Admin Panel with Angular 8 
 
-Demo : http://files.techno-apps.net/
+
